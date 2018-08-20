@@ -1,0 +1,7 @@
+
+
+
+bptrace mittente destinatario status_report timetolive 
+ciclo di sleep(1); per evitare di dover avere a che fare con contatti che passano essendo che e app sono time dependant.
+SDKMAN!
+SdrObject sono puntatori alla memoria SDR, la memoria che si memorizza i bundle. L'SDR eee1 cndivisa tra TUTTI I PROCESSI. (imparare bene estrazione e scrittura in SDR)
