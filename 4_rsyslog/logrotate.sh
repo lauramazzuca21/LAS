@@ -37,6 +37,12 @@ if /usr/bin/tty > /dev/null ; then
 
 	# leggere la man page di kill per il suggerimento sul path completo
 	# osservare la differenza tra kill -l e /bin/kill -l
+########
+#      NOTES  Your shell (command line interpreter) may have a built-in kill
+#             command.   You  may  need to run the command described here as
+#             /bin/kill to solve the conflict.
+########
+
 	if ! /bin/kill -l | grep -w "$LOGSIGNAL" ; then
 		echo "-s must be followed by a valid signal name ("$(/bin/kill -l)
 		exit 3

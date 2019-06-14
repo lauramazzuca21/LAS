@@ -1,6 +1,6 @@
 #!/bin/bash
 
-i=0
+#i=0
 
 filename="lista.txt"
 
@@ -21,8 +21,8 @@ filename="lista.txt"
 #done < "$filename"
 
 LWC=0
-for line in `cat $filename`; do
-	WC=(`./sshnum.sh "$line"`)
+for line in `cat $filename`; then
+	WC=$( ./sshnum_snmp.sh "$line" )
 	if [ $WC -eq 0 ] ; then
 		continue
 	else
