@@ -1,0 +1,32 @@
+dn: cn=servers,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: servers
+olcAttributeTypes: ( 1000.1.1.20 NAME ( 'ports' )
+  DESC 'porte'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1000.1.1.21 NAME ( 'server' )
+  DESC 'ip server'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1000.1.1.22 NAME ( 'traffic' )
+  DESC 'traffico nel formato ts_traffico'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1000.1.1.23 NAME ( 'ts' )
+  DESC 'ts'
+  EQUALITY integerMatch
+  ORDERING integerOrderingMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+olcObjectClasses: ( 1000.2.1.4 NAME 'host'
+  DESC 'host'
+  MUST ( server )
+  STRUCTURAL )
+olcObjectClasses: ( 1000.2.1.5 NAME 'data'
+  DESC 'data'
+  MUST ( ts $ ports $ traffic )
+  STRUCTURAL )
+

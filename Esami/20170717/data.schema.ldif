@@ -1,0 +1,36 @@
+dn: cn=data,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: data
+olcAttributeTypes: ( 5000.1.1.1 NAME ( 'server' )
+  DESC 'server'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.2 NAME ( 'pp' )
+  DESC 'Porta_Pacchetti'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.3 NAME ( 'load' )
+  DESC 'carico medio prev 5 min'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.4 NAME ( 'time' )
+  DESC 'timestamp'
+  EQUALITY integerMatch
+  ORDERING integerOrderingMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+olcAttributeTypes: ( 5000.1.1.5 NAME ( 'ram' )
+  DESC 'stato ram'
+  EQUALITY integerMatch
+  ORDERING integerOrderingMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+olcObjectClasses: ( 5000.2.1.1 NAME 'host'
+  DESC 'un server'
+  MUST ( server )
+  STRUCTURAL )
+olcObjectClasses: ( 5000.2.1.2 NAME 'data'
+  DESC 'dati riguardanti un server'
+  MUST ( time $ ram $ load $ pp )
+  AUXILIARY )

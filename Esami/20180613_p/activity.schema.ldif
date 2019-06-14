@@ -1,0 +1,39 @@
+dn: cn=activity,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: activity
+olcAttributeTypes: ( 5000.1.1.1 NAME ( 'uname' )
+  DESC 'uname'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.2 NAME ( 'pk' )
+  DESC 'chiave pubblica'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.3 NAME ( 'script' )
+  DESC 'nome dello scipt'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.4 NAME ( 'ts' )
+  DESC 'ts'
+  EQUALITY integerMatch
+  ORDERING integerOrderingMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+olcAttributeTypes: ( 5000.1.1.5 NAME ( 'rt' )
+  DESC 'rt'
+  EQUALITY integerMatch
+  ORDERING integerOrderingMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+olcObjectClasses: ( 5000.2.1.1 NAME 'user'
+  DESC 'un utente'
+  MUST ( uname $ pk )
+  STRUCTURAL )
+olcObjectClasses: ( 5000.2.1.2 NAME 'exec'
+  DESC 'esecuzione'
+  MUST ( ts $ rt $ script )
+  STRUCTURAL )
+
+#Vx/2 attributi
+#Vx/2 classi

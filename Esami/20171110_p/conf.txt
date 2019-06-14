@@ -1,0 +1,24 @@
+Client - /etc/snmp/snmpd.conf
+sistemare autenticazione come da esercitazioni standard
+aggiungere:
+extend    esame   /bin/ps h -C exec.sh -o uname
+
+Router - /etc/snmp/snmp.conf
+commentare la riga "mibs"
+
+---------------------
+
+Client - /etc/rsyslog.d/esame.conf
+local1.=info	@10.1.1.254
+
+Router - /etc/rsyslog.d/esame.conf
+abilitare la ricezione via udp
+local1.=info	/var/log/req.log
+
+---------------------
+
+Client - per login senza password
+generare coppia di chiavi rsa
+
+Server - per login senza password
+inserire la chiave pubblica dell'utente del client in ~/.ssh/authorized_keys

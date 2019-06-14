@@ -1,0 +1,17 @@
+dn: cn=pattern,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: pattern
+olcAttributeTypes: ( 5000.1.1.1 NAME ( 'ip' )
+  DESC 'ip'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.2 NAME ( 'badstring' )
+  DESC 'badstring'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcObjectClasses: ( 5000.2.1.1 NAME 'blacklist'
+  DESC 'blacklist'
+  MUST ( ip $ badstring )
+  STRUCTURAL )

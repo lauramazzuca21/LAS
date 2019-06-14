@@ -1,0 +1,22 @@
+dn: cn=stop,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: stop
+olcAttributeTypes: ( 5000.1.1.1 NAME ( 'src' )
+  DESC 'source'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.2 NAME ( 'dst' )
+  DESC 'dest'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 5000.1.1.3 NAME ( 'ora' )
+  DESC 'istante di blocco traffico tra src e dst'
+  EQUALITY integerMatch
+  ORDERING integerOrderingMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+olcObjectClasses: ( 5000.2.1.1 NAME 'stop'
+  DESC 'stop'
+  MUST ( ora $ dst $ src )
+  STRUCTURAL )

@@ -1,0 +1,28 @@
+dn: cn=users,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: users
+olcAttributeTypes: ( 1000.1.1.20 NAME ( 'utente' )
+  DESC 'nome utente'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1000.1.1.21 NAME ( 'server' )
+  DESC 'ip server'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcAttributeTypes: ( 1000.1.1.22 NAME ( 'traffic' )
+  DESC 'traffico nel formato ts_traffico'
+  EQUALITY caseExactMatch
+  SUBSTR caseExactSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcObjectClasses: ( 1000.2.1.4 NAME 'users'
+  DESC 'utente'
+  MUST ( utente )
+  STRUCTURAL )
+olcObjectClasses: ( 1000.2.1.5 NAME 'access'
+  DESC 'accesso'
+  MUST ( server )
+  MAY ( traffic )
+  STRUCTURAL )
+
